@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Prediction System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header class="header">
+    <h1>Diabetes Prediction System</h1>
+    <p>A beginner-friendly Machine Learning project</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Disclaimer -->
+    <div class="disclaimer" role="note">
+      <strong>Disclaimer:</strong> This is an educational Machine Learning project
+      and <strong>not a medical diagnosis</strong>. Please consult a qualified doctor
+      for any health concern.
+    </div>
+
+    <!-- Input form card -->
+    <section class="card">
+      <h2>Enter Health Details</h2>
+
+      <form id="predict-form" novalidate>
+        <div class="grid">
+
+          <div class="field">
+            <label for="Pregnancies">Pregnancies</label>
+            <input type="number" id="Pregnancies" name="Pregnancies" placeholder="e.g. 2" min="0" max="20" step="1" required>
+            <small>Number of times pregnant (0 - 20)</small>
+            <span class="error" id="err-Pregnancies"></span>
+          </div>
+
+          <div class="field">
+            <label for="Glucose">Glucose</label>
+            <input type="number" id="Glucose" name="Glucose" placeholder="e.g. 120" min="40" max="300" step="any" required>
+            <small>Plasma glucose in mg/dL (40 - 300)</small>
+            <span class="error" id="err-Glucose"></span>
+          </div>
+
+          <div class="field">
+            <label for="BloodPressure">Blood Pressure</label>
+            <input type="number" id="BloodPressure" name="BloodPressure" placeholder="e.g. 70" min="30" max="200" step="any" required>
+            <small>Diastolic pressure in mm Hg (30 - 200)</small>
+            <span class="error" id="err-BloodPressure"></span>
+          </div>
+
+          <div class="field">
+            <label for="SkinThickness">Skin Thickness <span class="opt">(optional)</span></label>
+            <input type="number" id="SkinThickness" name="SkinThickness" placeholder="e.g. 20" min="5" max="100" step="any">
+            <small>Triceps skin fold in mm (5 - 100). Leave empty if unknown</small>
+            <span class="error" id="err-SkinThickness"></span>
+          </div>
+
+          <div class="field">
+            <label for="Insulin">Insulin <span class="opt">(optional)</span></label>
+            <input type="number" id="Insulin" name="Insulin" placeholder="e.g. 80" min="10" max="900" step="any">
+            <small>2-hour serum insulin in mu U/ml (10 - 900). Leave empty if unknown</small>
+            <span class="error" id="err-Insulin"></span>
+          </div>
+
+          <div class="field">
+            <label for="BMI">BMI</label>
+            <input type="number" id="BMI" name="BMI" placeholder="e.g. 28.5" min="10" max="70" step="any" required>
+            <small>Body Mass Index in kg/m&sup2; (10 - 70)</small>
+            <span class="error" id="err-BMI"></span>
+          </div>
+
+          <div class="field">
+            <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+            <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" placeholder="e.g. 0.45" min="0.05" max="2.5" step="any" required>
+            <small>Family history score (0.05 - 2.5)</small>
+            <span class="error" id="err-DiabetesPedigreeFunction"></span>
+          </div>
+
+          <div class="field">
+            <label for="Age">Age</label>
+            <input type="number" id="Age" name="Age" placeholder="e.g. 35" min="1" max="120" step="1" required>
+            <small>Age in years (1 - 120)</small>
+            <span class="error" id="err-Age"></span>
+          </div>
+
+        </div>
+
+        <div class="buttons">
+          <button type="submit" id="predict-btn" class="btn btn-primary">Predict Diabetes</button>
+          <button type="button" id="reset-btn" class="btn btn-secondary">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Result card (hidden until a prediction is made) -->
+    <section class="card result hidden" id="result-card" aria-live="polite">
+      <h2>Result</h2>
+      <p class="result-text" id="result-text"></p>
+      <p class="probability" id="result-prob"></p>
+      <p class="note" id="result-note"></p>
+    </section>
+
+    <!-- Error message box -->
+    <div class="alert hidden" id="alert-box" role="alert"></div>
+
+  </main>
+
+  <footer class="footer">
+    Educational project &bull; Not for medical use
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

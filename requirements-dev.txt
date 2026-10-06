@@ -1,0 +1,7 @@
+# For training, the notebook and testing (includes the app requirements)
+-r requirements.txt
+scikit-learn>=1.4
+pandas>=2.0
+matplotlib>=3.8
+seaborn>=0.13
+joblib>=1.3
