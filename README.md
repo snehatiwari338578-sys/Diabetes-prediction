@@ -114,7 +114,7 @@ Response:
 
 1. Push this project to GitHub.
 2. On vercel.com choose **Add New -> Project**, import the repository and click **Deploy** (no settings need changing; Vercel detects Flask from `app.py`).
-3. Add your live link here: **Live demo:** _https://your-project.vercel.app_
+3. Add your live link here: **Live demo:** https://diabetes-prediction-livid.vercel.app/
 
 The deployed app uses only Flask and NumPy (see `predictor.py`), because scikit-learn and SciPy are too large for Vercel. Training still uses scikit-learn locally.
 
